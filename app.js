@@ -4,32 +4,39 @@ const app = express();
 //puerto
 const port = 8080;
 
+//hbs
+app.set('view engine', 'hbs');
+
 //static files
 app.use(express.static('public'));
 
+//index
+app.get('/', (req, res) => {
+  res.render('index');
+});
 //about
 app.get('/about', (req, res) => {
-  res.sendFile( __dirname + '/public/about.html' );
+  res.render('about');
 });
 //contact
 app.get('/contact', (req, res) => {
-  res.sendFile( __dirname + '/public/contact.html' );
+  res.render('contact');
 });
 //gallery
 app.get('/gallery', (req, res) => {
-  res.sendFile( __dirname + '/public/gallery.html' );
+  res.render('gallery');
 });
 //product
 app.get('/product', (req, res) => {
-  res.sendFile( __dirname + '/public/product.html' );
+  res.render('product');
 });
 //service
 app.get('/service', (req, res) => {
-  res.sendFile( __dirname + '/public/service.html' );
+  res.render('service');
 });
 //error 404
 app.get('/*', (req, res) => {
-  res.sendFile( __dirname + '/public/404.html' );
+  res.render('404');
 });
 
 //puerto
