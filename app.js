@@ -1,8 +1,15 @@
 //express
 const express = require('express');
+//handlebars
+const hbs = require('hbs');
+
+//express
 const app = express();
 //puerto
-const port = 8080;
+const port = process.env.PORT;
+
+//partials
+hbs.registerPartials(__dirname + '/views/partials');
 
 //hbs
 app.set('view engine', 'hbs');
